@@ -1,0 +1,35 @@
+.content {
+	margin: 30px auto;
+	width: 600px;
+	height: 100px;
+	border: 1px solid rgba(200,200,200,0.6);
+	border-radius: 10px;
+	font-size: 30px;
+	text-align: center;
+	line-height: 100px;
+}
+ul {
+	list-style:none;
+	border: 1px solid rgba(200,200,200,0.6);
+	border-radius: 5px;
+	width: 150px;
+	padding: 0;
+	position: absolute;
+	display:none;
+	overflow:hidden;
+}
+li:not(:last-child) {
+	border-bottom: 1px solid rgba(200,200,200,0.6);
+}
+li {
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background:#fff;
+}
+li:hover {
+	background:#ccc;
+}
+div, li, ul {
+	cursor: default;
+}

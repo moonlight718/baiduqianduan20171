@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<link rel = "stylesheet" href="index.css">
+	</head>
+	<body>
+		<div class="content">
+			right click to see the menu.
+		</div>
+		<ul>
+			<li>Menu Item1</li>
+			<li>Menu Item2</li>
+		</ul>
+		
+		<script>
+			var eventUtil = {
+				addHandler: function(element, type, handler) {
+					if(element.addEventListener) {
+						element.addEventListener(type, handler, false);
+					} else if(element.attachEvent) {
+						element.attachEvent("on" + type, handler);
+					} else {
+						element["on" + type] = handler;
+					}
+				},
+				getEvent: function(e) {
+					return e || window.event;
+				},
+				preventDefault: function(e) {
+					if(e.preventDefault) {
+						e.preventDefault();
+					} else {
+						e.returnVaule = false;
+					}
+				},
+				stopPropagation: function(e) {
+					if(e.stopPropagation) {
+						e.stopPropagation();
+					} else {
+						e.cancleBubble = true;
+					}
+				}
+			};
+			var $ = function(l) {
+				return document.querySelector(l);
+			}
+			var ul = $("ul");
+			eventUtil.addHandler($(".content"), "contextmenu", function(e) {
+				e = eventUtil.getEvent(e);
+				eventUtil.preventDefault(e);
+				ul.style.left = e.clientX + 'px';
+				ul.style.top = e.clientY + 'px';
+				ul.style.display = "block";
+			});
+			eventUtil.addHandler(ul, "click", function(e) {
+				e = eventUtil.getEvent(e);
+				eventUtil.stopPropagation(e);
+			});
+			eventUtil.addHandler(document, "click", function() {
+				ul.style.display = "none";
+			});
+		</script>
+	</body>
+</html>
