@@ -2,6 +2,7 @@
 	width: 800px;
 	height: 500px;
 	position: relative;
+	margin: 50px auto;
 	
 }
 .container:before {
