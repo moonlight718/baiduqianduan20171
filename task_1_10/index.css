@@ -1,0 +1,43 @@
+#container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	
+}
+#container div {
+	width: 150px;
+	border: 1px solid #ccc;
+	margin: 20px;
+}
+.div1 {
+	height: 120px;
+}
+.div2 {
+	height: 100px;
+}
+.div3 {
+	height: 40px;
+}
+.div4 {
+	height: 200px;
+}
+@media screen and (max-width: 640px) {
+	#container {
+		align-items: flex-start;
+		flex-wrap: wrap;
+	}
+	.div1 {
+		order: 2;
+	}
+	.div2 {
+		order: 3;
+	}
+	.div3 {
+		order: 4;
+	}
+
+	.div4 {
+		order: 1;
+	}
+}
